@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="/fragments/header.html :: fragment-header">
+</th:block>
+<body>
+<div th:replace="/fragments/nav.html :: fragment-nav"></div>
+    <div class="container">
+        <div class="row my-3">
+            <h2 class="mx-2 mt-2 fw-bold text-center">회원 관련 기능</h2>
+            <hr class="mt-1 mb-4">
+            <div class="d-flex justify-content-evenly  align-items-center mx-3">
+                <button class="btn btn-info btn-lg" onclick="location.href='member/add'">멤버 등록</button>
+                <button class="btn btn-dark bg-celadon btn-lg" onclick="location.href='member/'">멤버 조회</button>
+            </div>
+            <br>
+            <h2 class="mx-2 mt-2 fw-bold text-center">상품 관련 기능</h2>
+            <hr class="mt-1 mb-4">
+            <div class="d-flex justify-content-evenly  align-items-center mx-3">
+                <button class="btn btn-secondary btn-lg">상품 등록</button>
+                <button class="btn btn-success btn-lg">상품 조회</button>
+            </div>
+            <br>
+            <h2 class="mx-2 mt-2 fw-bold text-center">회원 관련 기능</h2>
+            <hr class="mt-1 mb-4">
+            <div class="d-flex justify-content-evenly  align-items-center mx-3">
+                <button class="btn btn-warning btn-lg">멤버</button>
+                <button class="btn btn-light bg-another btn-lg">조회</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div th:replace="/fragments/footer.html :: fragment-footer"></div>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>

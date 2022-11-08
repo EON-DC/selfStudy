@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="fragment-nav" class="container-fluid  bg-brown">
+    <div class="container-fluid bg-dark text-white px-4 py-2">
+        <div class="row align-items-center px-2">
+            <div class="col "><a class="banner" th:href="@{/}"><span class="h1 p-2">
+                Spring Boot JPA 예제</span></a></div>
+            <div class="col text-end">
+                <span class="lead mx-1 text-white">session ID:</span>
+                <span class="updown"></span>
+                <a href="#"> <span class="h5 p-2 text-white">로그인</span></a>
+            </div>
+        </div>
+    </div>
+
+</html>

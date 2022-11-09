@@ -28,4 +28,13 @@ public class Member {
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
 
+    //== 비즈니스 메서드 ==//
+
+    // 회원 정보 수정
+    public void update(String name, String password, String city, String street, String zipcode) {
+        this.name = name;
+        this.password = password;
+        this.address = new Address(city, street, zipcode);
+    }
+
 }

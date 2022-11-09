@@ -2,10 +2,12 @@ package jpabook.jpashop.domain.init;
 
 import jpabook.jpashop.domain.*;
 import jpabook.jpashop.domain.items.Book;
+import jpabook.jpashop.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.UUID;
 
 @Component
@@ -15,6 +17,18 @@ public class Init {
     /**
      * 유닛 테스트용으로 Entity 를 만들기 위함
      */
+
+    private final MemberRepository memberRepository;
+
+    @PostConstruct
+    public void initMethod(){
+        Member test1 = createMember();
+        Member test2 = createMember();
+        test2.setName("qqqq");
+        test2.setPassword("wwww");
+        memberRepository.save(test1);
+        memberRepository.save(test2);
+    }
 
 
     // Member 객체 생성

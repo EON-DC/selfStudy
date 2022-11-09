@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="/fragments/header.html :: fragment-header">
+</th:block>
+<body>
+<div th:replace="/fragments/nav.html :: fragment-nav"></div>
+  <div class="form-control">
+    <div class="list-group">
+      <ul th:object="${memberRegisterDto}">
+        <li>이름 : <span th:text="*{name}"></span></li>
+        <li>비밀번호 : <span th:text="*{password}"></span></li>
+        <li>도시 : <span th:text="*{city}"></span></li>
+        <li>도로명 : <span th:text="*{street}"></span></li>
+        <li>우편번호 : <span th:text="*{zipcode}"></span></li>
+      </ul>
+    </div>
+    <div>
+      <a class="btn btn-primary" th:href="@{/members/edit/{id} (id=${memberRegisterDto.id})}">수정</a>
+      <a class="btn btn-info" th:href="@{/}">메인으로</a>
+    </div>
+</div>
+<div class="row">
+  <div th:replace="/fragments/footer.html :: fragment-footer"></div>
+</div>
+</body>
+</html>

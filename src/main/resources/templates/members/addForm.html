@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="/fragments/header.html :: fragment-header">
+</th:block>
+<body>
+<div th:replace="/fragments/nav.html :: fragment-nav"></div>
+<form action="/members/add" th:object="${memberRegisterDto}" method="post">
+  <div class="form-control">
+
+    <div th:if="${#field.hasGlobalError()}">
+      <p class="field-error" th:each="err : ${#fields.globalError()}" th:text="${err}">
+        글로벌 오류 메시지
+      </p>
+    </div>
+
+    <div>
+      <label>이름</label>
+      <input type="text" th:field="*{name}" placeholder="로그인 이름"
+          th:errorclass="field-error">
+      <input type="text" th:field="*{password}" placeholder="비밀번호">
+      <p>오류 정보</p>
+    </div>
+    <div>
+      <label>주소</label>
+      <input type="text" th:field="*{city}" placeholder="도시 이름">
+      <input type="text" th:field="*{street}" placeholder="도로주소">
+      <input type="text" th:field="*{zipcode}" placeholder="우편번호">
+      <p>오류 정보</p>
+      <a th:href="@{/}" class="btn btn-outline-black">취소</a>
+      <button type="submit" class="btn btn-primary">등록</button>
+    </div>
+  </div>
+
+</form>
+<div class="row">
+  <div th:replace="/fragments/footer.html :: fragment-footer"></div>
+</div>
+
+</body>
+</html>

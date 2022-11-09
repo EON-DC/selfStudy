@@ -4,9 +4,10 @@
 </th:block>
 <body>
 <div th:replace="/fragments/nav.html :: fragment-nav"></div>
-<form action="/member/add" th:object="${memberRegisterDto}" method="post">
+<form th:action="@{/members/edit/{id} (id=${memberId})}" th:object="${memberRegisterDto}" method="post">
   <div class="form-control">
     <div>
+      <p>회원 정보 수정</p>
       <label>이름</label>
       <input type="text" th:field="*{name}" placeholder="로그인 이름">
       <input type="text" th:field="*{password}" placeholder="비밀번호">
@@ -18,12 +19,15 @@
       <input type="text" th:field="*{street}" placeholder="도로주소">
       <input type="text" th:field="*{zipcode}" placeholder="우편번호">
       <p>오류 정보</p>
+      <button type="submit" class="btn btn-primary">변경하기</button>
       <button type="button" onclick="location.href='/'" class="btn btn-outline-light">취소</button>
-      <button type="submit" class="btn btn-primary">등록</button>
     </div>
   </div>
 
 </form>
+<div class="row">
+  <div th:replace="/fragments/footer.html :: fragment-footer"></div>
+</div>
 
 </body>
 </html>

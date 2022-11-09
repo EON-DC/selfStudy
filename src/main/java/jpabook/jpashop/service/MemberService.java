@@ -1,6 +1,7 @@
 package jpabook.jpashop.service;
 
 import jpabook.jpashop.domain.Member;
+import jpabook.jpashop.domain.dto.MemberRegisterDto;
 import jpabook.jpashop.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -32,11 +33,29 @@ public class MemberService {
         throw new IllegalStateException("회원 정보를 찾을 수 없습니다.");
     }
 
+    public Member findName(String name){
+        Optional<Member> findMember = memberRepository.findByName(name);
+        if (findMember.isPresent()) {
+            return findMember.get();
+        }
+        return null;
+    }
+
+    public Long update(Long memberId, MemberRegisterDto memberRegisterDto) {
+        Member findMember = findOne(memberId);
+        findMember.update(memberRegisterDto.getName()
+                , memberRegisterDto.getPassword()
+                , memberRegisterDto.getCity()
+                , memberRegisterDto.getStreet()
+                , memberRegisterDto.getZipcode());
+        return memberId;
+    }
+
     public List<Member> findAll() {
         return memberRepository.findAll();
     }
 
-    public void delete(Member member){
+    public void delete(Member member) {
         memberRepository.delete(member);
     }
 
@@ -46,8 +65,6 @@ public class MemberService {
             throw new IllegalStateException("이미 존재하는 회원 이름입니다."); // 이미 존재하는 회원일 경우에 예외를 발생시킨다.
         }
     }
-
-
 
 
 }

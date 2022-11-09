@@ -10,23 +10,18 @@ import javax.validation.constraints.NotNull;
 
 @Data
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
-public class MemberRegisterDto {
+public class MemberDto {
 
     private Long id;
-
-    @NotNull
-    @Length(min = 1, max = 14)
     private String name;
 
-    @NotNull
-    @Length(min = 4, max = 12)
     private String password;
 
     private String city;
     private String street;
     private String zipcode;
 
-    public MemberRegisterDto(Member member) {
+    public MemberDto(Member member) {
         this.id = member.getId();
         this.name = member.getName();
         this.password = member.getPassword();

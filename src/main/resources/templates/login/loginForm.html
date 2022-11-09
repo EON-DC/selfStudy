@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="/fragments/header.html :: fragment-header">
+</th:block>
+<body>
+<div th:replace="/fragments/nav.html :: fragment-nav"></div>
+<form action="/login" th:object="${loginDto}" method="post">
+  <div class="form-control">
+    <div>
+      <label>이름</label>
+      <input type="text" th:field="*{name}" placeholder="로그인 이름">
+      <input type="text" th:field="*{password}" placeholder="비밀번호">
+      <p>오류 정보</p>
+    </div>
+    <div>
+      <button type="submit" class="btn btn-primary">로그인</button>
+      <a th:href="@{/}" class="btn btn-outline-black">돌아가기</a>
+    </div>
+  </div>
+
+</form>
+<div class="row">
+  <div th:replace="/fragments/footer.html :: fragment-footer"></div>
+</div>
+
+</body>
+</html>

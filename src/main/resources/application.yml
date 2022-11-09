@@ -9,7 +9,8 @@ spring:
       charset: UTF-8
       enabled: true
       force: true
-
+  thymeleaf:
+    encoding: UTF-8
   jpa:
     open-in-view: true
     hibernate:

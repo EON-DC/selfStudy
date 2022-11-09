@@ -27,7 +27,6 @@ body{
     color: #F0FFFF;
 }
 
-
 .banner{
     text-decoration:none;
     opacity: 1;
@@ -46,6 +45,10 @@ a{
 a:hover{
     opacity: 1;
 }
+.field-error{
+    border-color: red;
+    color: red;
+}
 
 .lead{
     font-size: 0.75rem;
@@ -62,5 +65,10 @@ a:hover{
 .btn-lg{
     width: 20%;
     height: 5rem;
+}
+
+.field-error{
+    border-color: #8B0000;
+    color: #8B0000;
 }
 

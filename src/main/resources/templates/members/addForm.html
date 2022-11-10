@@ -7,12 +7,6 @@
 <form action="/members/add" th:object="${memberRegisterDto}" method="post">
   <div class="form-control">
 
-    <div th:if="${#field.hasGlobalError()}">
-      <p class="field-error" th:each="err : ${#fields.globalError()}" th:text="${err}">
-        글로벌 오류 메시지
-      </p>
-    </div>
-
     <div>
       <label>이름</label>
       <input type="text" th:field="*{name}" placeholder="로그인 이름"

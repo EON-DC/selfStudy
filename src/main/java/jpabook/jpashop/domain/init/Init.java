@@ -35,6 +35,7 @@ public class Init {
     public static Member createMember() {
         Member member = new Member();
         member.setName(UUID.randomUUID().toString());
+        member.setPassword("1111");
         log.info("{}", Thread.currentThread().getStackTrace()[1].getMethodName());
         Address address = createAddress();
         member.setAddress(address);

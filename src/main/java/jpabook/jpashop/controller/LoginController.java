@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.Collection;
+import java.util.Enumeration;
 
 @Controller
 @RequestMapping("/login")
@@ -53,7 +55,7 @@ public class LoginController {
         // 로그인이 성공했다면
         HttpSession session = request.getSession();
         session.setAttribute(LOGIN_MEMBER, loginMember);
-        log.info("log data = {}", session.getAttributeNames());
+
         return "redirect:/";
     }
 
